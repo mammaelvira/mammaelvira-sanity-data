@@ -6,16 +6,18 @@ export default {
     {
       name: 'name',
       type: 'string',
-      title: 'Nome persona',
+      title: 'Nome',
       description: 'Inserire il nome della persona dello staff',
+      validation: (Rule) => Rule.required(),
     },
 
     {
-      title: 'Immagine',
       name: 'image',
       type: 'image',
+      title: 'Immagine',
+      description: "Caricare l'immagine della persona",
       options: {
-        hotspot: true, // <-- Defaults to false
+        hotspot: true, // <-- Default to false
       },
       fields: [
         // {
@@ -28,17 +30,11 @@ export default {
     {
       name: 'role',
       type: 'string',
-      title: 'Ruolo persona',
+      title: 'Ruolo',
       description: 'Inserire il ruolo della persona dello staff',
     },
     {
       name: 'nickname',
-      type: 'string',
-      title: 'Vineto',
-      description: 'Inserire il nome del vineto associato (soprannome)',
-    },
-    {
-      name: 'nickname2',
       type: 'string',
       title: 'Vineto',
       description: 'Inserire il nome del vineto associato (soprannome)',
