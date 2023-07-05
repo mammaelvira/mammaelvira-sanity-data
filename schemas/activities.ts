@@ -52,7 +52,7 @@ export default {
       name: 'streetNumber',
       type: 'string',
       title: 'Indirizzo - Numero Civico',
-      description: 'Inserire il numero civico',
+      description: "Inserire il numero civico o l'incrocio/traversa",
       group: 'address',
     },
     {

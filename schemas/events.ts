@@ -26,6 +26,14 @@ export default {
       validation: (Rule) => Rule.required(),
     },
 
+    {
+      name: 'isSoldout',
+      type: 'boolean',
+      title: 'Evento Sold Out?',
+      description: "Selezionare se l'evento è sold out",
+      initialValue: false,
+    },
+
     {name: 'datetimeStart', type: 'datetime', title: 'Data e orario inizio evento'},
     {name: 'datetimeEnd', type: 'datetime', title: 'Data e orario fine evento'},
 
@@ -47,10 +55,58 @@ export default {
     },
 
     {
-      title: 'Descrizione',
+      name: 'referenceName',
+      title: 'Persona/organizzazione di riferimento (opzionale)',
+      type: 'string',
+      description:
+        "Inserire il nome della persona o dell'organizzazione di riferimento, solitamente da abbinare al numero di telefono, ex. 'Roberto' o 'Delicatessen'",
+    },
+    {
+      name: 'referencePhone',
+      title: 'Numero di telefono per info/prenotazioni',
+      type: 'string',
+      description:
+        'Inserire il numero telefonico (da abbinare al riferimento precedente) Formato con +39 e senza spaziature',
+    },
+    {
+      name: 'referenceEmail',
+      title: 'Email di riferimento',
+      type: 'string',
+      description: 'Inserire la email di riferimento per questo evento',
+      validation: (Rule) =>
+        Rule.regex(
+          /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+          {
+            name: 'email', // Error message is "Does not match email-pattern"
+            invert: false, // Boolean to allow any value that does NOT match pattern
+          }
+        ),
+    },
+
+    {
       name: 'description',
+      title: 'Descrizione',
       type: 'array',
       of: [{type: 'block'}],
+    },
+
+    {
+      name: 'performerName',
+      title: 'Nome Artista/Performer',
+      type: 'array',
+      of: [{type: 'string'}],
+      description:
+        "Inserire il nome del'Artista/i rispettando l'ordine del campo successivo per associare i profili social o web di riferimento (1 per artista)",
+    },
+    {
+      name: 'performerLink',
+      title: "Link dell'Artista",
+      type: 'array',
+      of: [{type: 'string'}],
+      description: `Inserire un link, può essere un profilo social o un sito web di riferimento,
+        formato inizio comprensivo di protocollo 'https://..'
+        (icone associate automaticamente in base al link fornito ex. Spotify, Instagram, YouTube, sito personale)
+        INSERIRE UNA "x" minuscola se non ci sono riferimenti per un artista per rispettare l'ordine degli altri`,
     },
   ],
 
@@ -64,4 +120,16 @@ export default {
       }
     },
   },
+  orderings: [
+    {
+      name: 'datetimeStartASC',
+      title: 'Ordine Cronologico (vecchi-nuovi)',
+      by: [{field: 'datetimeStart', direction: 'asc'}],
+    },
+    {
+      name: 'datetimeStartDESC',
+      title: 'Ordine Cronologico (nuovi-vecchi)',
+      by: [{field: 'datetimeStart', direction: 'desc'}],
+    },
+  ],
 }

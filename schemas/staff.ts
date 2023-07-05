@@ -12,6 +12,28 @@ export default {
     },
 
     {
+      name: 'activity',
+      title: 'Locale/i di riferimento',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'activities'}]}],
+      description: 'Selezionare uno o più locali di riferimento',
+    },
+    {
+      name: 'roles',
+      type: 'array',
+      of: [{type: 'string'}],
+      title: 'Ruolo/i',
+      description:
+        'Inserire il/i ruolo/i della persona dello staff nello stesso ordine del locale di riferimento',
+    },
+
+    {
+      name: 'sortingOrder',
+      type: 'number',
+      title: 'Numero di apparizione',
+      description: "Inserire un numero che determina l'ordine di apparizione nelle pagine",
+    },
+    {
       name: 'image',
       type: 'image',
       title: 'Immagine',
@@ -27,12 +49,7 @@ export default {
         // },
       ],
     },
-    {
-      name: 'role',
-      type: 'string',
-      title: 'Ruolo',
-      description: 'Inserire il ruolo della persona dello staff',
-    },
+
     {
       name: 'nickname',
       type: 'string',
@@ -44,6 +61,16 @@ export default {
       name: 'description',
       type: 'array',
       of: [{type: 'block'}],
+    },
+  ],
+  preview: {
+    select: {title: 'name', subtitle: 'sortingOrder', media: 'image'},
+  },
+  orderings: [
+    {
+      name: 'sortingOrder',
+      title: 'Ordine di Apparizione',
+      by: [{field: 'sortingOrder', direction: 'asc'}],
     },
   ],
 }

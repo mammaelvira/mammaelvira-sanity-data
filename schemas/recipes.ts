@@ -27,6 +27,15 @@ export default {
         // },
       ],
     },
+
+    {
+      name: 'activity',
+      title: 'Locale/i di riferimento',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'activities'}]}],
+      description: 'Selezionare uno o più locali di riferimento',
+    },
+
     {
       name: 'description',
       title: 'Descrizione',
