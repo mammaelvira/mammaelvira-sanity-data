@@ -4,6 +4,13 @@ export default {
   title: 'Eventi',
   fields: [
     {
+      name: 'path',
+      type: 'string',
+      title: 'Path univoco evento',
+      description:
+        "Inserire il riferimento della pagina (lading page dell'evento); il riferimento deve essere univoco e iniziare con una barra '/' e contenere solo numeri e lettere separati da un trattino medio '-' (meno) ex. '/vera-di-lecce-25-luglio-23",
+    },
+    {
       name: 'isActive',
       type: 'boolean',
       title: 'Evento attivo?',
