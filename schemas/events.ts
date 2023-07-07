@@ -2,13 +2,16 @@ export default {
   name: 'events',
   type: 'document',
   title: 'Eventi',
+
+  groups: [{name: 'social', title: 'Social Share Preview'}],
+
   fields: [
     {
       name: 'path',
       type: 'string',
       title: 'Path univoco evento',
       description:
-        "Inserire il riferimento della pagina (lading page dell'evento); il riferimento deve essere univoco e iniziare con una barra '/' e contenere solo numeri e lettere separati da un trattino medio '-' (meno) ex. '/vera-di-lecce-25-luglio-23",
+        "Inserire il riferimento della pagina (lading page dell'evento); il riferimento deve essere univoco e iniziare con una barra '/' e contenere solo numeri e lettere separati da un trattino medio '-' (meno) ex. '/vera-di-lecce-25-luglio-23'",
     },
     {
       name: 'isActive',
@@ -59,6 +62,43 @@ export default {
         //   title: 'Caption',
         // },
       ],
+    },
+
+    {
+      name: 'ogImage',
+      type: 'image',
+      title: 'Immagine per Social Share',
+      description:
+        "Caricare l'immagine/locandina dell'evento per la card di condivisione social (formato 1200 x 630 pixel)",
+      options: {
+        hotspot: true, // <-- Default to false
+      },
+      fields: [
+        // {
+        //   name: 'caption',
+        //   type: 'string',
+        //   title: 'Caption',
+        // },
+      ],
+      group: 'social',
+    },
+    {
+      name: 'ogTitle',
+      type: 'string',
+      title: 'Titolo per Social Share',
+      description:
+        'Titolo visualizzato nella card di condivisione social (formato ottimale compreso tra 30 e 60 caratteri, massimo 70 caratteri)',
+      validation: (Rule) => Rule.max(70),
+      group: 'social',
+    },
+    {
+      name: 'ogDescription',
+      type: 'string',
+      title: 'Descrizione per Social Share',
+      description:
+        'Testo per la card di condivisione social (formato ottimale compreso tra 55 e 200 caratteri)',
+      validation: (Rule) => Rule.max(200),
+      group: 'social',
     },
 
     {
