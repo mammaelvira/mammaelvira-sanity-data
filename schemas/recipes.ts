@@ -4,6 +4,13 @@ export default {
   title: 'Ricette',
   fields: [
     {
+      name: 'isActive',
+      type: 'boolean',
+      title: 'Ricetta attiva?',
+      description: 'Selezionare se la ricetta è attiva',
+      initialValue: false,
+    },
+    {
       name: 'title',
       type: 'string',
       title: 'Titolo ricetta',
