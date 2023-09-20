@@ -126,7 +126,7 @@ export default {
           {
             name: 'email', // Error message is "Does not match email-pattern"
             invert: false, // Boolean to allow any value that does NOT match pattern
-          }
+          },
         ),
     },
 
@@ -135,31 +135,57 @@ export default {
       title: 'Descrizione',
       type: 'array',
       of: [{type: 'block'}],
+      description:
+        "Inserire i dettagli e le informazioni dell'evento che verranno visualizzate per prime (omettere programma, formula e bio artisti - da inserire poi negli appositi campi",
     },
 
     {
-      name: 'performerName',
-      title: 'Nome Artista/Performer',
+      name: 'program',
+      title: "Programma dell'evento",
       type: 'array',
-      of: [{type: 'string'}],
+      of: [{type: 'programObject'}],
       description:
-        "Inserire il nome del'Artista/i rispettando l'ordine del campo successivo per associare i profili social o web di riferimento (1 per artista)",
+        "Inserire per ogni fascia oraria o lineup l'ora di inizio e la relativa descrizione",
     },
+
     {
-      name: 'performerLink',
-      title: "Link dell'Artista",
+      name: 'formula',
+      title: "Formula dell'evento",
+      type: 'string',
+      description: 'NON UTILIZZARE - WORK IN PROGRESS',
+    },
+
+    // {
+    //   name: 'performerName',
+    //   title: 'Nome Artista/Performer',
+    //   type: 'array',
+    //   of: [{type: 'string'}],
+    //   description:
+    //     "Inserire il nome del'Artista/i rispettando l'ordine del campo successivo per associare i profili social o web di riferimento (1 per artista)",
+    // },
+    // {
+    //   name: 'performerLink',
+    //   title: "Link dell'Artista",
+    //   type: 'array',
+    //   of: [{type: 'string'}],
+    //   description: `Inserire un link, può essere un profilo social o un sito web di riferimento,
+    //     formato inizio comprensivo di protocollo 'https://..'
+    //     (icone associate automaticamente in base al link fornito ex. Spotify, Instagram, YouTube, sito personale)
+    //     INSERIRE UNA "x" minuscola se non ci sono riferimenti per un artista per rispettare l'ordine degli altri`,
+    // },
+
+    {
+      name: 'performers',
+      title: 'Performers',
       type: 'array',
-      of: [{type: 'string'}],
-      description: `Inserire un link, può essere un profilo social o un sito web di riferimento,
-        formato inizio comprensivo di protocollo 'https://..'
-        (icone associate automaticamente in base al link fornito ex. Spotify, Instagram, YouTube, sito personale)
-        INSERIRE UNA "x" minuscola se non ci sono riferimenti per un artista per rispettare l'ordine degli altri`,
+      of: [{type: 'performerObject'}],
+      description: 'Cliccare per inserire un nuovo performer (nome, bio, link social)',
     },
   ],
 
   preview: {
     select: {title: 'title', subtitle: 'activity.name', datetimeStart: 'datetimeStart'},
-    prepare(selection) {
+    prepare(selection: any) {
       const {title, subtitle, datetimeStart} = selection
       return {
         title: title,
