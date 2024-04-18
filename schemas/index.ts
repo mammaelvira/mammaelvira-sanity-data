@@ -1,4 +1,5 @@
 import activities from './activities'
+import activitiesExternal from './activities-external'
 
 import images from './carousel-images'
 
@@ -14,6 +15,7 @@ import programObject from './programObject'
 
 export const schemaTypes = [
   activities,
+  activitiesExternal,
 
   images,
 
