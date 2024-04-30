@@ -100,6 +100,23 @@ export default {
       group: 'links',
     },
     {
+      name: 'logo',
+      type: 'image',
+      title: 'Logo',
+      description: 'Caricare il logo del locale, preferito il formato .svg o .png con trasparenza',
+      options: {
+        hotspot: true, // <-- Default to false
+      },
+      fields: [
+        // {
+        //   name: 'caption',
+        //   type: 'string',
+        //   title: 'Caption',
+        // },
+      ],
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: 'googleMapsUrl',
       type: 'url',
       title: 'Google Maps URL',
