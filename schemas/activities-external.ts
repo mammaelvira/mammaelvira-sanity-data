@@ -33,7 +33,6 @@ export default {
       options: {disableAlpha: true},
       validation: (Rule) => Rule.required(),
     },
-
     {
       name: 'logo',
       type: 'image',
@@ -51,7 +50,6 @@ export default {
       ],
       validation: (Rule) => Rule.required(),
     },
-
     {
       name: 'link',
       type: 'url',
