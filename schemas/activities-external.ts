@@ -64,8 +64,7 @@ export default {
       name: 'path',
       type: 'string',
       title: 'Path Pagina',
-      description: 'Inserire il riferimento della pagina (path)',
-      group: 'links',
-    },
+      description: 'Inserire il riferimento della pagina (path)'
+    }
   ],
 }
