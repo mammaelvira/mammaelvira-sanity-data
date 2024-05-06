@@ -53,12 +53,11 @@ export default {
     },
 
     {
-      name: 'link',
-      type: 'url',
-      title: 'Link esterno',
-      description:
-        "Inserire il link esterno di collegamento con la card attività, inserire l'indirizzo completo di protocollo (ex. https://mammaelvira.com)",
-      validation: (Rule) => Rule.required().uri({scheme: ['http', 'https', 'mailto', 'tel']}),
+      name: 'path',
+      type: 'string',
+      title: 'Path Pagina',
+      description: 'Inserire il riferimento della pagina (path)',
+      group: 'links',
     }
   ],
 }
