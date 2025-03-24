@@ -20,6 +20,8 @@
     "@sanity/types": "^3.29.1",
     "@sanity/ui": "^2.0.2",
     "@sanity/vision": "^3.29.1",
+    "@vercel/node": "^5.1.14",
+    "dotenv": "^16.4.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",

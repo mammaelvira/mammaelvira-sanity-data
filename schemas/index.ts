@@ -13,6 +13,8 @@ import documents from './documents'
 import performerObject from './performerObject'
 import programObject from './programObject'
 
+import contacts from './contacts'
+
 export const schemaTypes = [
   activities,
   activitiesExternal,
@@ -30,4 +32,6 @@ export const schemaTypes = [
   programObject,
   // custom object for Performers
   performerObject,
+
+  contacts,
 ]
